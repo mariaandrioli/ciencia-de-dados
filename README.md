@@ -15,13 +15,13 @@ MISP  - Malware Information Sharing Platform
 
 ### Campos do 
 
-uuid: Universally Unique IDentifier
-event_id: Sequential Event ID used from the MISP Project
-category: category that is classified the artifact internally in the MISP Project
-type: type of artifact specified in the MISP Project.
-value: value assigned to the artifact within the MISP Project
-to_ids: Integer ID assigned to the Intrusion Detection System (IDS) to generate alerts.
-date: Integer ID assigned to date and time of analysis.
+uuid: Universally Unique IDentifier  
+event_id: Sequential Event ID used from the MISP Project  
+category: category that is classified the artifact internally in the MISP Project  
+type: type of artifact specified in the MISP Project  
+value: value assigned to the artifact within the MISP Project  
+to_ids: Integer ID assigned to the Intrusion Detection System (IDS) to generate alerts  
+date: Integer ID assigned to date and time of analysis  
 
 ### Autor
 
