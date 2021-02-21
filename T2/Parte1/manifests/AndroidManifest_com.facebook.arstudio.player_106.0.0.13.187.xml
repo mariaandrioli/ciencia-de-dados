@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.facebook.arstudio.player" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature android:glEsVersion="0x00020000"/>
+    <queries>
+        <package android:name="com.google.ar.core"/>
+    </queries>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.facebook.katana.provider.ACCESS"/>
+    <uses-permission android:name="com.facebook.wakizashi.provider.ACCESS"/>
+    <permission android:name="com.facebook.arstudio.player.permission.CROSS_PROCESS_BROADCAST_MANAGER" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.facebook.arstudio.player.permission.CROSS_PROCESS_BROADCAST_MANAGER"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.facebook.receiver.permission.ACCESS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:banner="@drawable/ic_launcher_banner_spark" android:debuggable="false" android:icon="@mipmap/ic_launcher_spark" android:label="Spark AR Player" android:name="com.facebook.arstudio.player.app.MsqrdPlayerApplication" android:networkSecurityConfig="@xml/fb_network_security_config" android:requestLegacyExternalStorage="true" android:roundIcon="@mipmap/ic_launcher_spark_round" android:theme="@style/Theme.MsqrdPlayer">
+        <meta-data android:name="com.facebook.build_rule" android:value="player_prod_split_xzso_arm64_release_fbsign"/>
+        <meta-data android:name="com.facebook.package_type" android:value="release"/>
+        <meta-data android:name="com.facebook.build_time" android:value="1611704413000L"/>
+        <meta-data android:name="com.facebook.versioncontrol.branch" android:value="master"/>
+        <meta-data android:name="com.facebook.versioncontrol.revision" android:value="MASTER"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="android.max_aspect" android:value="2.1"/>
+        <provider android:authorities="com.facebook.arstudio.player.provider.PlatformProvider" android:enabled="false" android:exported="true" android:name="com.facebook.platform.common.provider.PlatformProviderBase"/>
+        <activity android:enabled="false" android:name="com.facebook.platform.common.activity.PlatformWrapperActivity" android:theme="@style/Theme.FBUi.Transparent">
+            <intent-filter>
+                <action android:name="com.facebook.platform.PLATFORM_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:exported="false" android:isolatedProcess="true" android:name="com.facebook.cameracore.mediapipeline.asyncscripting.AsyncScriptingService" android:process=":AsyncScriptingProcess"/>
+        <provider android:authorities="com.facebook.arstudio.player.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <meta-data android:name="com.google.ar.core.min_apk_version" android:value="202940000"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.facebook.arstudio.player.experiments" android:enabled="false" android:name="com.facebook.abtest.qe.db.QuickExperimentContentProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.facebook.abtest.qe.settings.QuickExperimentListActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.facebook.abtest.qe.settings.QuickExperimentViewActivity"/>
+        <service android:enabled="false" android:name="com.facebook.account.twofac.protocol.LoginApprovalNotificationService"/>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="com.facebook.analytics.reporters.AppStateFADFeedbackActivity" android:screenOrientation="nosensor"/>
+        <receiver android:exported="false" android:name="com.facebook.analytics.appstatelogger.AppStateBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWEROFF"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.facebook.analytics.appstatelogger.AppStateIntentService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":fwkstartlog"/>
+        <service android:exported="false" android:name="com.facebook.analytics2.logger.LollipopUploadService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.facebook.analytics2.logger.AlarmBasedUploadService"/>
+        <receiver android:exported="false" android:name="com.facebook.analytics2.logger.HighPriUploadRetryReceiver"/>
+        <service android:enabled="false" android:exported="true" android:name="com.facebook.analytics2.logger.GooglePlayUploadService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <meta-data android:name="default-state" android:value="false"/>
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.facebook.appcomponentmanager.AppComponentManagerService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":pretosproc">
+            <meta-data android:name="coldpretos.whitelisted" android:value="true"/>
+        </service>
+        <receiver android:enabled="false" android:exported="true" android:name="com.facebook.appcomponentmanager.testreceivers.AppComponentManagerTestingReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.appcomponentmanager.ACTION_TEST"/>
+                <action android:name="com.facebook.appcomponentmanager.ACTION_PRINT_COMPONENTS"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.facebook.appcomponentmanager.testreceivers.FirstEnableStageTestReceiver">
+            <meta-data android:name="enable-stage" android:value="enable-cold-pretos"/>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="com.facebook.appcomponentmanager.testreceivers.SecondEnableStageTestReceiver">
+            <meta-data android:name="enable-stage" android:value="enable-warm-pretos"/>
+        </receiver>
+        <activity android:exported="false" android:name="com.facebook.arstudio.player.EffectHistoryActivity"/>
+        <activity android:exported="false" android:name="com.facebook.arstudio.player.EffectInfoActivity"/>
+        <activity android:exported="false" android:name="com.facebook.arstudio.player.AboutActivity"/>
+        <activity android:exported="false" android:name="com.facebook.arstudio.player.InstructionsActivity" android:theme="@style/Theme.MsqrdPlayer.BlueTitlebar"/>
+        <activity android:exported="false" android:name="com.facebook.arstudio.player.TermsPolicyActivity" android:theme="@style/Theme.MsqrdPlayer.Light"/>
+        <activity android:exported="false" android:name="com.facebook.arstudio.player.VoiceCommandTermsPolicyActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.facebook.arstudio.player.PostCaptureActivity"/>
+        <activity android:exported="true" android:name="com.facebook.arstudio.player.EffectListActivity">
+            <meta-data android:name="enable-stage" android:value="enable-cold-pretos"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.facebook.arstudio.player.MainActivity" android:showOnLockScreen="true" android:showWhenLocked="true" android:turnScreenOn="true">
+            <meta-data android:name="enable-stage" android:value="enable-cold-pretos"/>
+            <intent-filter>
+                <action android:name="com.facebook.arstudio.player.MIRROR"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="true" android:name="com.facebook.arstudio.player.appcomponentmanager.PlayerAppComponentReceiver" android:process=":pretosproc">
+            <meta-data android:name="enable-stage" android:value="enable-cold-pretos"/>
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.facebook.arstudio.player.kiosk.RelaunchKioskService"/>
+        <meta-data android:name="com.facebook.katana.fbpermission.SSO_ACCESS" android:value=""/>
+        <activity android:exported="false" android:launchMode="singleTop" android:name="com.facebook.arstudio.player.login.LoginActivity"/>
+        <provider android:authorities="com.facebook.arstudio.player.api.mirror" android:enabled="false" android:exported="true" android:name="com.facebook.arstudio.player.mirror.MirrorApiContentProvider">
+            <intent-filter>
+                <action android:name="com.facebook.arstudio.player.MIRROR_API"/>
+            </intent-filter>
+        </provider>
+        <receiver android:exported="true" android:name="com.facebook.arstudio.player.receiver.EditorCommandsReceiver">
+            <meta-data android:name="enable-stage" android:value="enable-cold-pretos"/>
+            <intent-filter>
+                <action android:name="com.facebook.arstudio.player.OPENGL_CAPABILITIES"/>
+                <action android:name="com.facebook.arstudio.player.MIRROR"/>
+                <action android:name="com.facebook.arstudio.player.PLAYER_CONFIG"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.facebook.arstudio.player.settings.PlayerSettingsActivity" android:theme="@style/Theme.MsqrdPlayer.Settings"/>
+        <activity android:exported="false" android:name="com.facebook.arstudio.player.settings.PlayerPinSettingsActivity"/>
+        <activity android:exported="false" android:name="com.facebook.arstudio.player.webview.WebViewActivity"/>
+        <service android:enabled="false" android:exported="true" android:name="com.facebook.bugreporter.scheduler.GCMBugReportService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <meta-data android:name="com.facebook.common.jobscheduler.compat.jobIds" android:resource="@array/job_scheduler_bugreporterretry_alljobs"/>
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="false" android:exported="true" android:name="com.facebook.bugreporter.scheduler.LollipopBugReportService" android:permission="android.permission.BIND_JOB_SERVICE">
+            <meta-data android:name="com.facebook.common.jobscheduler.compat.jobIds" android:resource="@array/job_scheduler_bugreporterretry_alljobs"/>
+        </service>
+        <receiver android:enabled="false" android:name="com.facebook.bugreporter.scheduler.AlarmsBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.bugreporter.scheduler.AlarmsBroadcastReceiver.RETRY_UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.facebook.bugreporter.activity.suggestifier.nonwork.SuggestifierActivity"/>
+        <meta-data android:name="com.google.ar.core" android:value="optional"/>
+        <service android:enabled="false" android:name="com.facebook.common.dextricks.DexOptimization$Service" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":optsvc"/>
+        <service android:enabled="false" android:name="com.facebook.common.dextricks.DexOptimizationJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":optsvc"/>
+        <activity android:enabled="false" android:name="com.facebook.common.init.DefaultSplashScreenActivity"/>
+        <service android:enabled="false" android:name="com.facebook.conditionalworker.ConditionalWorkerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.facebook.conditionalworker.ConditionalWorkerServiceReceiver" android:permission="com.facebook.permission.prod.FB_APP_COMMUNICATION">
+            <intent-filter>
+                <action android:name="com.facebook.intent.action.prod.FOR_CONDITIONAL_WORKER_SERVICE"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="false" android:exported="true" android:name="com.facebook.conditionalworker.LollipopConditionalWorkerService" android:permission="android.permission.BIND_JOB_SERVICE">
+            <meta-data android:name="com.facebook.common.jobscheduler.compat.jobIds" android:resource="@array/job_scheduler_conditionalworker_alljobs"/>
+            <meta-data android:name="enable-stage" android:value="enable-warm-pretos"/>
+        </service>
+        <service android:enabled="false" android:exported="true" android:name="com.facebook.conditionalworker.GooglePlayConditionalWorkerService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <meta-data android:name="com.facebook.common.jobscheduler.compat.jobIds" android:resource="@array/job_scheduler_conditionalworker_alljobs"/>
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="false" android:name="com.facebook.delayedworker.DelayedWorkerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.facebook.delayedworker.DelayedWorkerServiceReceiver" android:permission="com.facebook.permission.prod.FB_APP_COMMUNICATION">
+            <intent-filter>
+                <action android:name="com.facebook.intent.action.prod.FOR_DELAYED_WORKER_SERVICE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.facebook.device_id.UniqueIdSupplier" android:permission="com.facebook.receiver.permission.ACCESS">
+            <intent-filter>
+                <action android:name="com.facebook.GET_UNIQUE_ID"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="com.facebook.device_id.DefaultPhoneIdRequestReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.GET_PHONE_ID"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.facebook.arstudio.player.provider.phoneid" android:enabled="false" android:exported="true" android:name="com.facebook.device_id.DefaultPhoneIdProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:enabled="false" android:launchMode="singleTop" android:name="com.facebook.dialtone.activity.DialtoneWifiInterstitialActivity" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:enabled="false" android:launchMode="singleTop" android:name="com.facebook.dialtone.activity.DialtoneUnsupportedCarrierInterstitialActivity" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:enabled="false" android:name="com.facebook.dialtone.activity.DialtoneIntentInterstitialActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:launchMode="singleInstance" android:name="com.facebook.dialtone.activity.DialtoneUriIntentHandlerActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:exported="false" android:name="com.facebook.errorreporting.lacrima.detector.broadcast.SecureShutdownBootBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.facebook.fbservice.service.BlueService">
+            <meta-data android:name="enable-stage" android:value="enable-warm-pretos"/>
+        </service>
+        <service android:exported="false" android:name="com.facebook.fbservice.service.BlueServiceJobIntentService" android:permission="android.permission.BIND_JOB_SERVICE">
+            <meta-data android:name="enable-stage" android:value="enable-warm-pretos"/>
+        </service>
+        <activity android:exported="false" android:name="com.facebook.gdp.fpsu.FirstPartySignUpActivity" android:theme="@style/Theme.FBUi.Transparent"/>
+        <service android:exported="false" android:name="com.facebook.graphql.executor.offlinemutations.OfflineMutationsRetryJobService" android:permission="android.permission.BIND_JOB_SERVICE">
+            <meta-data android:name="com.facebook.common.jobscheduler.compat.jobIds" android:resource="@array/jobscheduler_offline_mutations_retry_ids"/>
+        </service>
+        <service android:enabled="false" android:exported="true" android:name="com.facebook.graphql.executor.offlinemutations.OfflineMutationsRetryGCMTaskService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <meta-data android:name="com.facebook.common.jobscheduler.compat.jobIds" android:resource="@array/jobscheduler_offline_mutations_retry_ids"/>
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:label="MessagingService" android:name="com.facebook.mqttlite.MqttService"/>
+        <service android:enabled="true" android:exported="false" android:label="MultiuserMqttService" android:name="com.facebook.multiusermqtt.MultiuserMqttService"/>
+        <receiver android:exported="false" android:name="com.facebook.nobreak.CrashLoop$LastState">
+            <meta-data android:name="crash.loop.exclude" android:value="true"/>
+        </receiver>
+        <receiver android:enabled="false" android:exported="false" android:name="com.facebook.oxygen.preloads.integration.tosacceptance.TosAcceptedFlagComponent">
+            <meta-data android:name="default-state" android:value="false"/>
+        </receiver>
+        <receiver android:enabled="false" android:exported="false" android:name="com.facebook.oxygen.preloads.sdk.firstparty.settings.TosAcceptedFlag">
+            <meta-data android:name="default-state" android:value="false"/>
+        </receiver>
+        <activity android:enabled="false" android:name="com.facebook.payments.paymentmethods.cardform.CardFormActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <service android:enabled="false" android:name="com.facebook.push.mqtt.service.MqttPushHelperService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="false" android:name="com.facebook.quicklog.module.QPLRecorderDumpActivity"/>
+        <activity android:exported="false" android:name="com.facebook.quicklog.module.QPLEventFlushActivity"/>
+        <service android:exported="false" android:name="com.facebook.reportaproblem.base.bugreport.BugReportUploadService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:enabled="false" android:name="com.facebook.resources.impl.WaitingForStringsActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.facebook.screencast.ui.ScreencastActivity" android:theme="@style/Theme.Facebook" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <service android:exported="false" android:foregroundServiceType="mediaProjection" android:name="com.facebook.screencast.ScreencastService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.facebook.video.heroplayer.remotecodec.service.CodecService" android:process=":remotecodec">
+            <intent-filter>
+                <action android:name="com.facebook.video.heroplayer.remotecodec.service.CodecService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.facebook.video.heroplayer.service.HeroService" android:process=":videoplayer">
+            <intent-filter>
+                <action android:name="com.facebook.video.nxplayer.service.HeroPlayerService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="false" android:exported="false" android:name="com.facebook.video.heroplayer.service.MainProcHeroService">
+            <meta-data android:name="default-state" android:value="false"/>
+            <intent-filter>
+                <action android:name="com.facebook.video.nxplayer.service.HeroPlayerService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="false" android:exported="true" android:name="com.facebook.voltron.fbdownloader.AppModuleDownloadGcmTaskService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <meta-data android:name="com.facebook.common.jobscheduler.compat.jobIds" android:resource="@array/jobscheduler_app_module_download_ids"/>
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.facebook.voltron.scheduler.AppModuleDownloadJobService" android:permission="android.permission.BIND_JOB_SERVICE">
+            <meta-data android:name="com.facebook.common.jobscheduler.compat.jobIds" android:resource="@array/jobscheduler_app_module_download_ids"/>
+        </service>
+        <service android:exported="false" android:name="com.facebook.voltron.scheduler.AppModuleAlarmBasedDownloader"/>
+        <activity-alias android:enabled="false" android:exported="true" android:name="com.facebook.secure.packagefinder.PackageFinderActivity" android:targetActivity="com.facebook.arstudio.player.EffectListActivity">
+            <meta-data android:name="default-state" android:value="false"/>
+            <intent-filter>
+                <action android:name="com.facebook.secure.packagefinder.intent.ACTION_QUERY_PACKAGES"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+    </application>
+</manifest>
