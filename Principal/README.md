@@ -25,8 +25,8 @@ MISP  - Malware Information Sharing Platform
 
 ###  Exploração de Dados
  1. Que tipos de dados você tem, majoritariamente (atributos numéricos,
-    textuais)? 
-    Os dados são análises de malwares feitas a partir de sandboxes. Os dados contém identificadores que usam o MISP Project para classificar estes malwares, sendo a maioria dos atributos textuais.
+    textuais)?  
+Os dados são análises de malwares feitas a partir de sandboxes. Os dados contém identificadores que usam o MISP Project para classificar estes malwares, sendo a maioria dos atributos textuais.
  2. Qual seu objetivo com esse dataset?  
 O objetivo á usar esse dataset para analisar quais malwares são mais comuns, assim possibilitando, em uma solução hipotética para além dessa disciplina, estudar esses malwares e combater esses ataques. 
  3. Seu dataset é rotulado de que maneira?  
