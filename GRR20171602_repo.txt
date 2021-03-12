@@ -1,1 +1,3 @@
-https://github.com/mariaandrioli/ciencia-de-dados
+https://github.com/mariaandrioli/ciencia-de-dados 
+
+Exploração de Dados está em /Principal/README.md
